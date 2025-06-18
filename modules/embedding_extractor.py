@@ -12,7 +12,7 @@ class EmbeddingExtractor:
         else:
             raise ValueError(f"Model {model_name} is not supported.")
         
-        return Model(inputs=base_model.input, outputs=base_model.output)
+        return Model(inputs=base_model.input, outputs=base_model.layers[-2].output)
 
     def extract_embeddings(self, images):
         preprocessed_images = preprocess_input(images)
